@@ -29,11 +29,7 @@ var encodeCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		input := args[0]
 
-		v := url.Values{}
-		v.Add("dummy", input)
-
-		encoded := v.Encode()
-		fmt.Println(encoded[6:])
+		fmt.Println(url.QueryEscape(input))
 	},
 }
 
