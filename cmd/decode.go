@@ -23,14 +23,14 @@ import (
 )
 
 var decodeCmd = &cobra.Command{
-  Use:   "decode STRING",
+	Use:   "decode STRING",
 	Short: "URL-decode an input string",
 	Long:  `That's it. URL-decode a string.`,
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		input := args[0]
-    output, _ := url.QueryUnescape(input)
-    output = strings.TrimSuffix(output, " <nil>")
+		output, _ := url.QueryUnescape(input)
+		output = strings.TrimSuffix(output, " <nil>")
 
 		fmt.Println(output)
 	},
