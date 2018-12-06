@@ -15,10 +15,10 @@
 package cmd
 
 import (
-  "bufio"
+	"bufio"
 	"fmt"
 	"net/url"
-  "os"
+	"os"
 
 	"github.com/spf13/cobra"
 )
