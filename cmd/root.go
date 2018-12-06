@@ -24,16 +24,9 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "url",
-	Short: "Utility for CLI URL wizardry.",
-	Long: `I've been needing to URL-encode strings to pass
-	into cURL a lot for some reason.
-	
-	I imagine I'm not the only one with this or similar problems,
-	so I decided to solve it in the form of a static binary anybody
-	could download and use.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	//	Run: func(cmd *cobra.Command, args []string) { },
+	Short: "Allows easy URL-encoding of strings",
+	Long: "Solves the common problem of needing to deal with human-readable " +
+		"and URL-encoded strings",
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
