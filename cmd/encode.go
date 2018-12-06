@@ -15,8 +15,10 @@
 package cmd
 
 import (
+	"bufio"
 	"fmt"
 	"net/url"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -25,9 +27,15 @@ var encodeCmd = &cobra.Command{
 	Use:   "encode STRING",
 	Short: "URL-encode an input string",
 	Long:  `That's it. URL-encode a string.`,
-	Args:  cobra.ExactArgs(1),
+	Args:  cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		input := args[0]
+		input := ""
+		if len(args) < 1 {
+			in := bufio.NewReader(os.Stdin)
+			input, _ = in.ReadString('\n')
+		} else {
+			input = args[0]
+		}
 
 		fmt.Println(url.QueryEscape(input))
 	},
